@@ -1,5 +1,6 @@
 # Daily Coding Problem #2
-Difficulty Rating: HARD
+**Difficulty Rating: HARD**
+
 Good morning! Here's your coding interview problem for today.
 
 This problem was asked by Uber.
