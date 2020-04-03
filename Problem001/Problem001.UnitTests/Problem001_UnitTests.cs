@@ -59,5 +59,16 @@ namespace Problem001.UnitTests
 
             Assert.IsTrue(Problem001.SolveProblem(list, k));
         }
+
+
+
+        [TestMethod]
+        public void OneItemInList()
+        {
+            List<int> list = new List<int>() { 5 };
+            int k = 5;
+
+            Assert.IsFalse(Problem001.SolveProblem(list, k));
+        }
     }
 }
