@@ -19,7 +19,30 @@ namespace Problem002
         /// </summary>
         public static int[] SolveProblem(int[] array)
         {
-            return BruteForce(array);
+            return FasterSolution(array);
+        }
+
+        /// <summary>
+        /// Time Complexity: O(n)
+        /// Space Complexity: O(n)
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns></returns>
+        public static int[] FasterSolution(int[] array)
+        {
+            int[] newArray = new int[array.Length];
+
+            int product = 1;
+
+            for (int i=0; i<array.Length; i++)
+                product *= array[i];
+            
+            for (int i=0; i<array.Length; i++)
+            {
+                newArray[i] = product / array[i];
+            }
+
+            return newArray;
         }
 
         /// <summary>
