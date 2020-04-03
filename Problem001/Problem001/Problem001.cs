@@ -20,7 +20,29 @@ namespace Problem001
         /// <returns></returns>
         public static bool SolveProblem(List<int> list, int k)
         {
-            return BetterTimeComplexity(list, k);
+            return BonusSolution(list, k);
+        }
+
+        /// <summary>
+        /// Time Complexity: O(n)
+        /// Space Complexity: O(n)
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="k"></param>
+        /// <returns></returns>
+        public static bool BonusSolution(List<int> list, int k)
+        {
+            HashSet<int> seen = new HashSet<int>();
+
+            for (int i=0; i<list.Count; i++)
+            {
+                if (seen.Contains(k - list[i]))
+                    return true;
+
+                seen.Add(list[i]);
+            }
+
+            return false;
         }
 
         /// <summary>
