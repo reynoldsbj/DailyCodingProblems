@@ -20,7 +20,37 @@ namespace Problem001
         /// <returns></returns>
         public static bool SolveProblem(List<int> list, int k)
         {
-            return BruteForce(list, k);
+            return BetterTimeComplexity(list, k);
+        }
+
+        /// <summary>
+        /// Time Complexity: O(nlogn)
+        /// Space Complexity: O(1)
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="k"></param>
+        /// <returns></returns>
+        public static bool BetterTimeComplexity(List<int> list, int k)
+        {
+            list.Sort();
+
+            int i = 0;
+            int j = list.Count - 1;
+            int sum;
+            
+            while (i < j)
+            {
+                sum = list[i] + list[j];
+
+                if (sum == k)
+                    return true;
+                else if (sum < k)
+                    i++;
+                else
+                    j--;
+            }
+
+            return false;
         }
 
         /// <summary>
