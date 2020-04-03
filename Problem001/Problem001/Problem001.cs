@@ -5,6 +5,7 @@ namespace Problem001
     public static class Problem001
     {
         /// <summary>
+        /// Difficulty Rating: EASY
         /// Good morning! Here's your coding interview problem for today.
         ///
         /// This problem was recently asked by Google.
