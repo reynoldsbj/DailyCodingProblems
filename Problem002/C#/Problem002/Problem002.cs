@@ -20,7 +20,48 @@
         /// </summary>
         public static int[] SolveProblem(int[] array)
         {
-            return FasterSolution(array);
+            return NoDivisionBest(array);
+        }
+
+        /// <summary>
+        ///     <para>
+        ///         Gets the product of each value left of the index
+        ///         (or 0...i-1) and then multiplies the left values 
+        ///         by the product of each value right of the index
+        ///         (or i+1...n). This process takes a cumulative
+        ///         approach rather than trying to process each value
+        ///         individually.
+        ///     </para>
+        /// </summary>
+        /// <param name="array">The array to process</param>
+        /// <returns>
+        ///     A new array such that each element at index i 
+        ///     is the product of all the values in the original 
+        ///     <paramref name="array"/> except the value at index
+        ///     i in the original <paramref name="array"/>
+        /// </returns>
+        public static int[] NoDivisionBest(int[] array)
+        {
+            // Create a new array of the same length
+            int[] newArray = new int[array.Length];
+
+            // Get left products
+            newArray[0] = 1;
+            for (int i=1; i<array.Length; i++)
+            {
+                newArray[i] = array[i - 1] * newArray[i - 1];
+            }
+
+            // Multiply in right products
+            int rightProduct = 1;
+            for (int i=array.Length-2; i>=0; i--)
+            {
+                rightProduct *= array[i + 1];
+                newArray[i] *= rightProduct;
+            }
+
+            // Return the new array
+            return newArray;
         }
 
         /// <summary>
